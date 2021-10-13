@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "ebbdcdb7-fd30-4bcc-9e5c-958e2b1b15e3",
+		"name": "Heroes API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"token\", response.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\":\"Nashef5\",\r\n    \"Password\":\"N@shef90\",\r\n    \"ConfirmPassword\":\"N@shef90\",\r\n    \"FName\":\"Mahmoud\",\r\n    \"LName\":\"Nashef\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/Auth/Register",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"Auth",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response = JSON.parse(responseBody);\r",
+									"pm.collectionVariables.set(\"token\", response.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\":\"Nashef\",\r\n    \"Password\":\"N@shef90\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/Auth/Login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"Auth",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Heroes",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/heroes",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"heroes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/heroes/f3743c9f-5acb-40aa-8a8d-ab7ef7ffebb4",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"heroes",
+								"f3743c9f-5acb-40aa-8a8d-ab7ef7ffebb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"ba073d97-db4a-4b4f-90fd-21ecc9930a8e\",\r\n    \"name\": \"Ayat\",\r\n    \"ability\": \"attacker\",\r\n    \"firstTraining\": null,\r\n    \"suitColor\": \"10, 20, 50\",\r\n    \"startingPower\": 20.453,\r\n    \"currentPower\": 20.441,\r\n    \"canStartTraining\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/heroes/f3743c9f-5acb-40aa-8a8d-ab7ef7ffebb4",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"heroes",
+								"f3743c9f-5acb-40aa-8a8d-ab7ef7ffebb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/heroes/f3743c9f-5acb-40aa-8a8d-ab7ef7ffebb4",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"heroes",
+								"f3743c9f-5acb-40aa-8a8d-ab7ef7ffebb4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Hero",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mahmoud\",\r\n    \"ability\": \"attacker\",\r\n    \"firstTraining\": null,\r\n    \"suitColor\": \"10, 20, 150\",\r\n    \"startingPower\": 20.453,\r\n    \"currentPower\": 20.441\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/heroes",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"heroes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "StartTraining",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ayat\",\r\n    \"ability\": \"attacker\",\r\n    \"firstTraining\": null,\r\n    \"suitColor\": \"10, 20, 150\",\r\n    \"startingPower\": 20.453,\r\n    \"currentPower\": 20.441,\r\n    \"canStartTraining\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/heroes/StartTraining/ffbaa6a3-16af-4210-b8c5-2aa4f9ad9794",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"heroes",
+								"StartTraining",
+								"ffbaa6a3-16af-4210-b8c5-2aa4f9ad9794"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "http://localhost:5000/api"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}

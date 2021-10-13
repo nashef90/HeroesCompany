@@ -1,0 +1,33 @@
+.menu-spacer {
+    flex: 1 1 auto;
+}
+
+img {
+    height: 100%;
+    margin: 0 10px;
+}
+
+.website-title {
+    font-size: 4vh;
+    color: wheat;
+    font-family: 'DancingScript-VariableFont_wght';
+}
+
+@font-face {
+    font-family: 'DancingScript-VariableFont_wght';
+    src: url(../../../../assets/fonts/DancingScript-VariableFont_wght.ttf);
+}
+
+.navbar {
+    height: 70px;
+    color: white;
+}
+
+button {
+    margin: 0 10px;
+}
+
+.mat-icon {
+    padding: 0;
+    margin: 0;
+}

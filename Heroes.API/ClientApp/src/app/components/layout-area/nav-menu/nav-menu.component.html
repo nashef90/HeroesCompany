@@ -1,0 +1,32 @@
+<!-- <mat-toolbar>
+    <img class="logo-img" src="assets/images/logo.png">
+    <span>Heroes company</span>
+    <span class="menu-spacer"></span>
+    <label>Hello Nashef, </label>
+    <button class="btn btn-warning">
+        <mat-icon>logout</mat-icon>
+        Logout
+      </button>
+</mat-toolbar> -->
+
+<nav class="navbar navbar-dark bg-dark justify-content-between">
+    <img class="logo-img" src="assets/images/logo.png">
+    <span class="website-title">Heroes company</span>
+    <span class="menu-spacer"></span>
+    <div>
+        <ng-container *ngIf="userLoggedIn">
+            <label>Hello {{userFullName}}</label>
+            <button class="btn btn-danger" [routerLink]="['/logout']" routerLinkActive="router-link-active">
+          <fa-icon [icon]="logoutIcon"></fa-icon> Logout
+        </button>
+        </ng-container>
+        <ng-container *ngIf="!userLoggedIn">
+            <button class="btn btn-light" [routerLink]="['/login']" routerLinkActive="router-link-active">
+            <fa-icon [icon]="loginIcon"></fa-icon> Login
+          </button>
+            <button class="btn btn-warning" [routerLink]="['/signup']" routerLinkActive="router-link-active">
+            <fa-icon [icon]="registerIcon"></fa-icon> SignUp
+          </button>
+        </ng-container>
+    </div>
+</nav>

@@ -1,0 +1,8 @@
+<div class="top-actions-container">
+    <button class="btn btn-success" [routerLink]="['/heroes/new']"><fa-icon [icon]='addIcon' ></fa-icon> Add new hero</button>
+</div>
+<div class="list-of-heroes-is-empty" *ngIf="heroes?.length === 0">
+    <img class="logo-img" src="assets/images/logo.png">
+    <label>You do not have any trainees yet</label>
+</div>
+<app-hero-card *ngFor="let item of heroes" [(item)]='item'></app-hero-card>

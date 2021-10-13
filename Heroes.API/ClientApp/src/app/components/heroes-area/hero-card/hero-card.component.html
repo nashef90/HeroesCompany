@@ -1,0 +1,17 @@
+<div class="hero-card">
+    <div class="actions-container">
+        <button class="btn btn-info" [disabled]="!item.canStartTraining" matTooltip="Start training" (click)="startTraining()">
+            <fa-icon [icon]='trainingIcon' ></fa-icon> 
+        </button>
+        <button class="btn btn-warning" matTooltip="Edit hero" [routerLink]="['/heroes/edit/'+item.id]">
+            <fa-icon [icon]='editHeroIcon' ></fa-icon> 
+        </button>
+        <button class="btn btn-primary" matTooltip="Hero details" [routerLink]="['/heroes/details/'+item.id]">
+            <fa-icon [icon]='heroDetailsIcon' ></fa-icon> 
+        </button>
+    </div>
+    <fa-icon [icon]='heroIcon' [style.color]='heroIconColor'></fa-icon>
+    <div>{{item.name}}</div>
+    <div>(
+        <fa-icon [icon]='powerIcon'></fa-icon> {{item.currentPower|number:'1.2-2'}})</div>
+</div>

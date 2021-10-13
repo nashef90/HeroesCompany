@@ -1,0 +1,47 @@
+<mat-card>
+    <mat-card-title>SignUp</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" novalidate (submit)="submit()">
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Username" formControlName="username">
+                    <mat-error *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)">Username is required</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="First name" formControlName="firstName">
+                    <mat-error *ngIf="form.controls['firstName'].invalid && (form.controls['firstName'].dirty || form.controls['firstName'].touched)">First name is required</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Last name" formControlName="lastName">
+                    <mat-error *ngIf="form.controls['lastName'].invalid && (form.controls['lastName'].dirty || form.controls['lastName'].touched)">Last name is required</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Password" formControlName="password">
+                    <mat-error *ngIf="form.controls['password'].invalid && form.controls['password'].errors?.required && (form.controls['password'].dirty || form.controls['password'].touched)">Password is required</mat-error>
+                    <mat-error *ngIf="form.controls['password'].invalid && form.controls['password'].errors?.pattern &&(form.controls['password'].dirty || form.controls['password'].touched)">Password must be at least 8 characters, and also must include at least one upper case letter, one symbol, and one numeric digit</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="password" matInput placeholder="Confirm password" formControlName="confirmPassword">
+                    <mat-error *ngIf="form.controls['confirmPassword'].invalid && form.controls['confirmPassword'].errors?.required && (form.controls['confirmPassword'].dirty || form.controls['password'].touched)">Confirm password is required</mat-error>
+                    <mat-error *ngIf="form.controls['confirmPassword'].invalid && form.controls['confirmPassword'].errors?.NotEqual &&(form.controls['confirmPassword'].dirty || form.controls['password'].touched)">The passwords do not match</mat-error>
+                </mat-form-field>
+            </p>
+
+            <div class="button">
+                <button type="submit" [disabled]="form.invalid" mat-button>Register</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,62 @@
+.list-of-heroes-is-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    img {
+        width: 100px;
+        position: relative;
+        animation-name: img-animation;
+        animation-duration: 4s;
+    }
+    label {
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        color: cyan;
+        animation-name: label-animation;
+        animation-duration: 4s;
+    }
+}
+
+@keyframes label-animation {
+    0% {
+        color: white;
+        transform: scale(0);
+    }
+    75% {
+        color: rgba(0, 255, 255, 0.493);
+        transform: scale(1.5);
+    }
+    100% {
+        color: cyan;
+        transform: scale(1);
+    }
+}
+
+@keyframes img-animation {
+    0% {
+        left: -200px;
+        top: 0px;
+    }
+    25% {
+        left: 200px;
+        top: 0px;
+    }
+    50% {
+        left: 200px;
+        top: 200px;
+    }
+    75% {
+        left: -200px;
+        top: 200px;
+    }
+    100% {
+        left: 0px;
+        top: 0px;
+    }
+}
+
+.top-actions-container {
+    margin: 10px 10px 30px 10px;
+}

@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-title>Edit hero</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" novalidate (submit)="submit()">
+            <p>
+                <mat-form-field>
+                    <input type="text" matInput placeholder="Name" formControlName="name">
+                    <mat-error *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)">Name is required</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Ability</mat-label>
+                    <mat-select formControlName="ability">
+                        <mat-option value="" disabled>Select ability</mat-option>
+                        <mat-option value="attacker">Attacker</mat-option>
+                        <mat-option value="defender">Defender</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.controls['ability'].invalid  && (form.controls['ability'].dirty || form.controls['ability'].touched)">Ability is required</mat-error>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field>
+                    <input type="color" matInput placeholder="Suit color" formControlName="suitColor">
+                    <mat-error *ngIf="form.controls['suitColor'].invalid && (form.controls['suitColor'].dirty || form.controls['suitColor'].touched)">Suit color is required</mat-error>
+                </mat-form-field>
+            </p>
+
+            <div class="actions">
+                <div class="left">
+                    <button class="btn btn-info" matTooltip="Back to heroes" [routerLink]="['/heroes']">
+                        <fa-icon [icon]='backIcon' ></fa-icon> Back
+                    </button>
+                </div>
+                <div class="right">
+                    <button type="submit" [disabled]="form.invalid" mat-button>Update</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

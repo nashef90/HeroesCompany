@@ -1,0 +1,19 @@
+<div class="hero-details-container">
+    <div class="top-actions-container">
+        <button class="btn btn-info" matTooltip="Back to heroes" [routerLink]="['/heroes']">
+            <fa-icon [icon]='backIcon' ></fa-icon> Back
+        </button>
+    </div>
+
+    <div class="item-info-container" *ngIf="item">
+        <fa-icon [icon]='heroIcon' [style.color]='heroIconColor'></fa-icon>
+        <label>{{item.name}}</label>
+        <div class="more-item-info-container">
+            <app-hero-info-item title="Id:" [value]="item.id"></app-hero-info-item>
+            <app-hero-info-item title="Ability:" [value]="item.ability"></app-hero-info-item>
+            <app-hero-info-item title="First training:" [value]="item.firstTraining | date : 'yyyy/MM/dd HH:mm:ss'"></app-hero-info-item>
+            <app-hero-info-item title="Starting power:" [value]="item.startingPower | number : '1.2-2'"></app-hero-info-item>
+            <app-hero-info-item title="Current power:" [value]="item.currentPower | number : '1.2-2'"></app-hero-info-item>
+        </div>
+    </div>
+</div>

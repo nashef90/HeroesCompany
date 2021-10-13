@@ -1,0 +1,12 @@
+.item-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    fa-icon {
+        font-size: 150px;
+        display: block;
+    }
+    .more-item-info-container {
+        width: 80%;
+    }
+}

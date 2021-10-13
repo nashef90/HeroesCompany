@@ -1,0 +1,52 @@
+div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    * {
+        display: block;
+    }
+    label {
+        // font-size: 30px;
+        // line-height: 40px;
+        color: white;
+        background-color: black;
+        border-radius: 10px;
+        border: 2px solid yellow;
+        padding: 2px 30px;
+    }
+}
+
+.rotate {
+    animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotatey (0deg);
+    }
+    to {
+        transform: rotatey(359deg);
+    }
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 100px;
+    height: 100px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate( 0deg);
+    }
+    100% {
+        transform: rotate( 360deg);
+    }
+}

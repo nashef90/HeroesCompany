@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~bootstrap/dist/css/bootstrap.min.css';
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: #092756;
+    background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -moz-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -webkit-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+    background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -o-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+    background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -ms-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -ms-linear-gradient(-45deg, #670d10 0%, #092756 100%);
+    background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), linear-gradient(135deg, #670d10 0%, #092756 100%);
+}
+
+.router-link-active {
+    pointer-events: none;
+    cursor: default;
+    border-color: rgb(155, 155, 155);
+    background-color: silver;
+    color: rgb(155, 155, 155);
+}
+
+// regular style toast
+@import '~ngx-toastr/toastr';
+// bootstrap style toast
+// or import a bootstrap 4 alert styled design (SASS ONLY)
+// should be after your bootstrap imports, it uses bs4 variables, mixins, functions
+// @import '~ngx-toastr/toastr-bs4-alert';
+// if you'd like to use it without importing all of bootstrap it requires
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+// @import '~ngx-toastr/toastr-bs4-alert';
+.toast-top-full-width,
+.toast-top-left,
+.toast-top-center,
+.toast-top-right {
+    top: 10px;
+}
+
+.ngx-toastr {
+    font-size: 16px;
+}
