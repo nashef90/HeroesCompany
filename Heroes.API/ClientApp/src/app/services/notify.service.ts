@@ -39,6 +39,7 @@ export class NotifyService {
         return err.message;
       }
     }
+    console.error(err);
     return "Some error occurred, please try again";
   }
 
@@ -66,4 +67,5 @@ export class NotifyService {
   warning(message?: string, title?: string, override?: Partial<IndividualConfig>): ActiveToast<any> {
     return this.toastr.warning(message, title, override);
   }
+
 }

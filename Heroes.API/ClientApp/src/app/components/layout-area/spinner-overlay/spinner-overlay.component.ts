@@ -6,5 +6,5 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./spinner-overlay.component.scss']
 })
 export class SpinnerOverlayComponent {
-/*  @Input()*/ public message: string;
+  @Input() public message: string;
 }

@@ -26,7 +26,7 @@ export class HeroesService {
     if (this.heroes)
       return of(this.heroes);
 
-    return this.http.get<HeroDTO[]>(this.baseUrl + "Heroes")
+    return this.http.get<HeroDTO[]>(`${this.baseUrl}/Heroes`)
       .pipe(
         tap(data => {
           this.heroes = data.sort((a, b) => this.heroSort(a, b));
@@ -39,7 +39,7 @@ export class HeroesService {
       if (index >= 0)
         return of(this.heroes[index]);
     }
-    return this.http.get<HeroDTO>(this.baseUrl + "Heroes/" + id);
+    return this.http.get<HeroDTO>(`${this.baseUrl}/Heroes/${id}`);
   }
 
   addNewItem(item: AddHeroRequestDTO): Observable<HeroDTO> {
@@ -55,7 +55,7 @@ export class HeroesService {
   }
 
   updateItem(item: UpdateHeroRequestDTO): Observable<HeroDTO> {
-    return this.http.put<HeroDTO>(this.baseUrl + "Heroes/" + item.id, item)
+    return this.http.put<HeroDTO>(`${this.baseUrl}/Heroes/${item.id}`, item)
       .pipe(
         tap(data => {
           if (!this.heroes)
@@ -70,7 +70,7 @@ export class HeroesService {
   }
 
   deleteItem(id: string): Observable<void> {
-    return this.http.delete<void>(this.baseUrl + "Heroes/" + id)
+    return this.http.delete<void>(`${this.baseUrl}/Heroes/${id}`)
       .pipe(
         tap(data => {
           if (!this.heroes)
@@ -83,7 +83,7 @@ export class HeroesService {
   }
 
   startTraining(id: string): Observable<HeroDTO> {
-    return this.http.post<HeroDTO>(this.baseUrl + "Heroes/StartTraining/" + id, null)
+    return this.http.post<HeroDTO>(`${this.baseUrl}/Heroes/StartTraining/${id}`, null)
       .pipe(
         tap(data => {
           if (!this.heroes)

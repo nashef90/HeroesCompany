@@ -127,7 +127,7 @@ namespace Heroes.API
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
-                    spa.Options.StartupTimeout = new TimeSpan(0, 30, 0);
+                    spa.Options.StartupTimeout = new TimeSpan(0, 10, 0);
                 }
             });
         }

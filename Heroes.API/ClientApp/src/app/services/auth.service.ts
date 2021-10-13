@@ -15,7 +15,7 @@ export class AuthService {
   currentLoginResponse$ = this.currentLoginResponseSource.asObservable();
   public token: string = "";
   private readonly storageLoginResponseKey = "user";
-  public readonly loginUrl = this.baseUrl + "Auth/Login";
+  public readonly loginUrl = `${this.baseUrl}/Auth/Login`;
 
 
   constructor(
@@ -59,7 +59,7 @@ export class AuthService {
   }
 
   register(request: RegisterRequestDTO): Observable<RegisterResponseDTO> {
-    return this.http.post<RegisterResponseDTO>(this.baseUrl + "Auth/register", request)
+    return this.http.post<RegisterResponseDTO>(`${this.baseUrl}/Auth/register`, request)
       .pipe(map(response => {
         this.setCurrentLoginResponse({
           userName: response.userName,
